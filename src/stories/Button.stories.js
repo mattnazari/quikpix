@@ -5,7 +5,13 @@ import Button from "../comps/Button";
 
 export default {
   title: "Buttons",
-  components: Button
+  component: Button
 };
 
-export const DefaultButton = () => {};
+export const DefaultButton = () => {
+  return <Button />;
+};
+
+export const ConvertButton = () => {
+  return <Button buttonTitle="CONVERT" />;
+};
