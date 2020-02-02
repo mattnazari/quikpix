@@ -22,24 +22,30 @@ export const FooterMenu = () => {
 
 var headerItems = [
   {
-    itemTitle: "Upgrade"
+    itemTitle: "Upgrade",
+    itemTitleColor: "#101010"
   },
   {
-    itemTitle: "Contact"
+    itemTitle: "Contact",
+    itemTitleColor: "#101010"
   },
   {
-    itemTitle: "Account"
+    itemTitle: "Account",
+    itemTitleColor: "#101010"
   }
 ];
 
 var footerItems = [
   {
-    itemTitle: "Privacy and Terms"
+    itemTitle: "Privacy and Terms",
+    itemTitleColor: "#FFFFFF"
   },
   {
-    itemTitle: "About Us"
+    itemTitle: "About Us",
+    itemTitleColor: "#FFFFFF"
   },
   {
-    itemTitle: "Contact Us"
+    itemTitle: "Contact Us",
+    itemTitleColor: "#FFFFFF"
   }
 ];
