@@ -8,6 +8,10 @@ export default {
   components: Menu
 };
 
-export const HeaderMenu = () => {};
+export const HeaderMenu = () => {
+  return <Menu />;
+};
 
-export const FooterMenu = () => {};
+export const FooterMenu = () => {
+  return <Menu />;
+};
