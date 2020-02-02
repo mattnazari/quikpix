@@ -6,7 +6,8 @@ const Button = ({
   buttonTextColor,
   buttonHeight,
   buttonWidth,
-  buttonFontSize
+  buttonFontSize,
+  buttonBorder
 }) => {
   return (
     <button
@@ -16,7 +17,8 @@ const Button = ({
         color: buttonTextColor,
         width: buttonWidth,
         height: buttonHeight,
-        fontSize: buttonFontSize
+        fontSize: buttonFontSize,
+        border: buttonBorder
       }}
     >
       {buttonTitle}
@@ -30,7 +32,8 @@ Button.defaultProps = {
   buttonTextColor: "#FFFFFF",
   buttonWidth: "233px",
   buttonHeight: "62px",
-  buttonFontSize: "25pt"
+  buttonFontSize: "18pt",
+  buttonBorder: "none"
 };
 
 export default Button;
