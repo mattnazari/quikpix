@@ -1,7 +1,7 @@
 import React from "react";
 import MenuItem from "./MenuItem";
 
-const Menu = (items, children) => {
+const Menu = ({ items, children }) => {
   return (
     <div>
       {items.map((o, i) => {

@@ -1,6 +1,6 @@
 import React from "react";
 
-const MenuItem = (itemTitle, OnClick) => {
+const MenuItem = ({ itemTitle, OnClick }) => {
   return <div>{itemTitle}</div>;
 };
 

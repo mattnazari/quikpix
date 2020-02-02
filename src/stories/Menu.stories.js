@@ -8,10 +8,38 @@ export default {
   components: Menu
 };
 
-export const HeaderMenu = () => {
+export const DefaultMenu = () => {
   return <Menu />;
 };
 
-export const FooterMenu = () => {
-  return <Menu />;
+export const HeaderMenu = () => {
+  return <Menu items={headerItems} />;
 };
+
+export const FooterMenu = () => {
+  return <Menu items={footerItems} />;
+};
+
+var headerItems = [
+  {
+    itemTitle: "Upgrade"
+  },
+  {
+    itemTitle: "Contact"
+  },
+  {
+    itemTitle: "Account"
+  }
+];
+
+var footerItems = [
+  {
+    itemTitle: "Privacy and Terms"
+  },
+  {
+    itemTitle: "About Us"
+  },
+  {
+    itemTitle: "Contact Us"
+  }
+];
