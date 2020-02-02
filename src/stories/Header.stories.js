@@ -8,4 +8,6 @@ export default {
   components: Header
 };
 
-export const deafultHeader = () => {};
+export const defaultHeader = () => {
+  return <Header />;
+};
