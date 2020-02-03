@@ -1,11 +1,13 @@
 .headerCont {
   width: 100vw;
   height: 120px;
-  justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   padding: 30px;
   border: black 1px solid;
+  justify-content: space-between;
+  flex-direction: row;
+  display: flex;
 }
 
 .logo {
