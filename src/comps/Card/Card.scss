@@ -1,0 +1,21 @@
+.cardCont {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.titleText {
+  font-family: Poppins-SemiBold;
+  font-size: 12pt;
+  margin: 0;
+}
+
+.dimText {
+  font-family: Poppins-Medium;
+  font-size: 8pt;
+  margin: 0;
+}
