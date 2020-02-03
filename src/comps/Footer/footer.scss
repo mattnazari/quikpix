@@ -1,0 +1,26 @@
+.footerCont {
+  width: 100vw;
+  height: 150px;
+  background-color: #0075a8;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footerItemsCont {
+  width: 50%;
+  display: flex;
+}
+
+.copyText {
+  color: #ffffff;
+  font-family: Poppins-Regular;
+  font-size: 10pt;
+}
+
+.copyTextCont {
+  display: flex;
+  justify-content: center;
+}

@@ -15,15 +15,18 @@ Header.defaultProps = {};
 var headerItems = [
   {
     itemTitle: "Upgrade",
-    itemTitleColor: "#101010"
+    itemTitleColor: "#101010",
+    itemWidth: "100px"
   },
   {
     itemTitle: "Contact",
-    itemTitleColor: "#101010"
+    itemTitleColor: "#101010",
+    itemWidth: "100px"
   },
   {
     itemTitle: "Account",
-    itemTitleColor: "#101010"
+    itemTitleColor: "#101010",
+    itemWidth: "100px"
   }
 ];
 

@@ -1,10 +1,10 @@
 import React from "react";
 
-const MenuItem = ({ itemTitle, OnClick, itemTitleColor, menuWidth }) => {
+const MenuItem = ({ itemTitle, OnClick, itemTitleColor, itemWidth }) => {
   return (
     <div
       className="menuItemCont"
-      style={{ color: itemTitleColor, width: menuWidth }}
+      style={{ color: itemTitleColor, width: itemWidth }}
     >
       {itemTitle}
     </div>
@@ -15,7 +15,7 @@ MenuItem.defaultProps = {
   itemTitle: "default title",
   OnClick: () => {},
   itemTitleColor: "#101010",
-  menuWidth: "100px"
+  itemWidth: ""
 };
 
 export default MenuItem;
