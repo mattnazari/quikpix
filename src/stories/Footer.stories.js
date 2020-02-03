@@ -8,4 +8,6 @@ export default {
   components: Footer
 };
 
-export const DefaultFooter = () => {};
+export const DefaultFooter = () => {
+  return <Footer />;
+};
