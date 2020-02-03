@@ -8,4 +8,6 @@ export default {
   components: DropFile
 };
 
-export const DefaultDropFile = () => {};
+export const DefaultDropFile = () => {
+  return <DropFile />;
+};
