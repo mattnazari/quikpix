@@ -1,26 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../Card";
-import FaChevronCircleDown from "react-icons/fa";
+import { FaChevronCircleDown } from "react-icons/fa";
 
-const CardWrapper = ({ type }) => {
+const CardWrapper = ({ type, title }) => {
   let cn;
-
   if (type === 'dropdown') {
     cn = 'dropdown'
   }
 
-  return <div className='bar'>
-    <FaChevronCircleDown />
-    <div className={cn}>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+  let dim = (
+    <div></div>
+  )
+  const [visible, setVisible] = useState(false)
+  if (visible) {
+    dim = (
+      <div className={cn}>
+        <Card titleTxt='Profile Picture' />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
+    )
+  }
+
+  return <div className='cont'>
+    <div className='bar' onClick={() => {
+      setVisible(!visible);
+    }}>
+      <h3>{title}</h3>
+      <FaChevronCircleDown size={30} />
     </div>
+    {dim}
   </div>;
 };
 
-CardWrapper.defaultProps = {};
+CardWrapper.defaultProps = {
+  type: 'dropdown',
+  title: 'default title',
+};
 
 export default CardWrapper;

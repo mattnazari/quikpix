@@ -8,6 +8,6 @@ export default {
   components: CardWrapper
 };
 
-export const DropwdownCardWrapper = () => {
-  return <CardWrapper type="dropdown" />;
+export const DropdownCardWrapper = () => {
+  return <CardWrapper type='dropdown' title='Instagram' />;
 };
