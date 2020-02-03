@@ -3,7 +3,7 @@ import MenuItem from "./MenuItem";
 
 const Menu = ({ items, children }) => {
   return (
-    <div>
+    <div className='cont'>
       {items.map((o, i) => {
         return <MenuItem {...o} />;
       })}
