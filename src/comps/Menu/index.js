@@ -1,9 +1,9 @@
 import React from "react";
 import MenuItem from "./MenuItem";
 
-const Menu = ({ items, children }) => {
+const Menu = ({ items, menuWidth }) => {
   return (
-    <div className='cont'>
+    <div className="cont" style={{ width: menuWidth }}>
       {items.map((o, i) => {
         return <MenuItem {...o} />;
       })}
@@ -23,7 +23,7 @@ Menu.defaultProps = {
       itemTitle: "item3"
     }
   ],
-  children: null
+  menuWidth: ""
 };
 
 export default Menu;

@@ -4,6 +4,7 @@
 @import "./comps/Header/header.scss";
 @import "./comps/Card/Card.scss";
 @import "./comps/CardWrapper/cardwrapper.scss";
+@import "./comps/Footer/footer.scss";
 
 @font-face {
   font-family: Poppins-SemiBold;
@@ -13,6 +14,11 @@
 @font-face {
   font-family: Poppins-Medium;
   src: url(Poppins-Medium.otf);
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(Poppins-Regular.otf);
 }
 
 @font-face {
