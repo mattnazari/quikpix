@@ -8,4 +8,6 @@ export default {
   components: Card
 };
 
-export const DefaultCard = () => {};
+export const DefaultCard = () => {
+  return <Card />;
+};

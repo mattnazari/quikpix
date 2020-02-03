@@ -8,4 +8,6 @@ export default {
   components: CardWrapper
 };
 
-export const DefaultCardWrapper = () => {};
+export const DefaultCardWrapper = () => {
+  return <CardWrapper />;
+};
