@@ -19,7 +19,7 @@ const Card = ({ imgWidth, imgHeight, titleTxt, dimTxt, backgroundimg }) => {
 
 Card.defaultProps = {
   backgroundimg:
-    "url('https://www.ie-smu-mba.com/wp-content/uploads/2016/06/dummy-img.jpg')",
+    "url('https://www.rabata.org/wp-content/uploads/2018/05/dummy.png')",
   imgWidth: "100px",
   imgHeight: "100px",
   titleTxt: "default title text",
