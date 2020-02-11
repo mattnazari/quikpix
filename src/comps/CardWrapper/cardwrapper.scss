@@ -2,26 +2,32 @@
   font-family: Poppins-Medium;
 }
 
-.dropdown {
+@mixin flex($dir: column, $ai: start, $jc: space-between) {
   display: flex;
-  flex-direction: row;
+  flex-direction: $dir;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+.dropdown {
+  @include flex(row);
   background-color: #f9f9f9;
-  justify-content: space-between;
+  transition: all 0.35s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.dropdown_active {
+  max-height: 100vh;
   padding: 30px 40px;
 }
 
 .bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-  // border-top-left-radius: 20px;
-  // border-top-right-radius: 20px;
+  @include flex(row, center);
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
   padding: 5px 30px;
 }
 
-.wrapCont {
-  display: flex;
-  flex-direction: row;
+.row {
+  @include flex(row, center);
 }
