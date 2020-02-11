@@ -1,25 +1,18 @@
 import React, { useState } from "react";
 import Card from "../Card";
-import { FaChevronCircleDown } from "react-icons/fa";
+import { IoIosArrowDropdownCircle, IoIosArrowDropdown } from 'react-icons/io';
 
-const CardWrapper = ({ type, title }) => {
+const CardWrapper = ({ type, title, mediaIcon }) => {
   let cn;
   if (type === "dropdown") {
     cn = "dropdown";
   }
 
-  let dim = <div></div>;
+  let icon = <IoIosArrowDropdown size={32} color={'31C1FF'} />;
   const [visible, setVisible] = useState(false);
   if (visible) {
-    dim = (
-      <div className={cn}>
-        <Card titleTxt="Profile Picture" />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
-    );
+    cn = 'dropdown dropdown_active'
+    icon = <IoIosArrowDropdownCircle size={32} color={'31C1FF'} />
   }
 
   return (
@@ -28,19 +21,28 @@ const CardWrapper = ({ type, title }) => {
         className="bar"
         onClick={() => {
           setVisible(!visible);
-        }}
-      >
-        <h3>{title}</h3>
-        <FaChevronCircleDown size={30} />
+        }}>
+        <div className="row">
+          <img src={mediaIcon} height="32" />
+          <h3>{title}</h3>
+        </div>
+        {icon}
       </div>
-      {dim}
+      <div className={cn}>
+        <Card titleTxt="Profile Picture" />
+        <Card />
+        <Card imgHeight="400px" imgWidth="200px" titleTxt="Stories" dimTxt="This is custom text" />
+        <Card />
+        <Card />
+      </div>
     </div>
   );
 };
 
 CardWrapper.defaultProps = {
   type: "dropdown",
-  title: "default title"
+  title: "default title",
+  mediaIcon: null
 };
 
 export default CardWrapper;
