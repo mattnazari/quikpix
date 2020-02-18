@@ -5,6 +5,7 @@
 @import "./comps/Card/Card.scss";
 @import "./comps/CardWrapper/cardwrapper.scss";
 @import "./comps/Footer/footer.scss";
+@import "./comps//ResultsCard/resultsCard.scss";
 
 @font-face {
   font-family: Poppins-SemiBold;
@@ -24,4 +25,9 @@
 @font-face {
   font-family: Quicksand-Bold;
   src: url(./assets/fonts/Quicksand-Bold.otf);
+}
+
+@font-face {
+  font-family: Poppins-Light;
+  src: url(./assets/fonts/Poppins-Light.otf);
 }

@@ -1,50 +1,52 @@
 import React from "react";
+import Button from "../Button";
 
 const Card = ({
-  imgWidth,
-  imgHeight,
+  cardWidth,
+  cardHeight,
   titleTxt,
   dimTxt,
   bgImg,
   bgColor,
-  innerImg,
-  innerTxt,
-  innerImgW,
-  innerImgH,
+  statusImg,
+  statusTxt,
+  statusImgW,
+  statusImgH,
   bgOpacity,
-  innerTxtSize,
-  innerTxtMTop,
+  statusTxtSize,
+  statusTxtMTop,
   titleTxtOp,
   dimTxtOp
 }) => {
   return (
-    <div className="cardCont">
-      <div className="imageCont">
+    <div className="cardWrap">
+      <div className="cardCont">
         <div
-          className="image"
+          className="card"
           style={{
             backgroundImage: bgImg,
-            width: imgWidth,
-            height: imgHeight,
+            width: cardWidth,
+            height: cardHeight,
             backgroundColor: bgColor,
             opacity: bgOpacity
           }}
         ></div>
         <div
-          className="innerImg"
+          className="statusImg"
           style={{
-            backgroundImage: innerImg,
-            width: innerImgW,
-            height: innerImgH
+            backgroundImage: statusImg,
+            width: statusImgW,
+            height: statusImgH
           }}
         ></div>
         <p
-          className="innerTxt"
-          style={{ fontSize: innerTxtSize, marginTop: innerTxtMTop }}
+          className="statusTxt"
+          style={{ fontSize: statusTxtSize, marginTop: statusTxtMTop }}
         >
-          {innerTxt}
+          {statusTxt}
         </p>
       </div>
+
       <p className="titleText" style={{ opacity: titleTxtOp }}>
         {titleTxt}
       </p>
@@ -57,18 +59,18 @@ const Card = ({
 
 Card.defaultProps = {
   bgImg: "url('https://www.rabata.org/wp-content/uploads/2018/05/dummy.png')",
-  imgWidth: "100px",
-  imgHeight: "100px",
+  cardWidth: "100px",
+  cardHeight: "100px",
   titleTxt: "default title text",
   dimTxt: "default dim text",
   bgColor: "",
-  innerImg: "",
-  innerTxt: "",
-  innerImgH: "",
-  innerImgW: "",
+  statusImg: "",
+  statusTxt: "",
+  statusImgH: "",
+  statusImgW: "",
   bgOpacity: "",
-  innerTxtSize: "12px",
-  innerTxtMTop: "50px",
+  statusTxtSize: "12px",
+  statusTxtMTop: "50px",
   titleTxtOp: "",
   dimTxtOp: ""
 };

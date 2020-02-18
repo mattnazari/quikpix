@@ -15,8 +15,8 @@ export const DefaultCard = () => {
 export const ProfileCard = () => {
   return (
     <Card
-      imgWidth="76px"
-      imgHeight="76px"
+      cardWidth="76px"
+      cardHeight="76px"
       titleTxt="Profile Picture"
       dimTxt="110 x 110 px"
     />
@@ -28,9 +28,9 @@ export const checkedCard = () => {
     <Card
       bgColor="#31C1FF"
       bgImg=""
-      innerImg="url('http://www.matthewnazari.ca/check.svg')"
-      innerImgW="50px"
-      innerImgH="50px"
+      statusImg="url('http://www.matthewnazari.ca/check.svg')"
+      statusImgW="50px"
+      statusImgH="50px"
     />
   );
 };
@@ -38,13 +38,13 @@ export const checkedCard = () => {
 export const lockedCard = () => {
   return (
     <Card
-      imgWidth="140px"
-      imgHeight="240px"
-      innerImg="url('http://www.matthewnazari.ca/lock.svg')"
-      innerImgW="50px"
-      innerImgH="50px"
+      cardWidth="140px"
+      cardHeight="240px"
+      statusImg="url('http://www.matthewnazari.ca/lock.svg')"
+      statusImgW="50px"
+      statusImgH="50px"
       bgOpacity="0.2"
-      innerTxt="Upgrade to unlock"
+      statusTxt="Upgrade to unlock"
       titleTxtOp="0.2"
       dimTxtOp="0.2"
     />

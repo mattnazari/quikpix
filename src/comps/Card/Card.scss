@@ -1,11 +1,11 @@
-.cardCont {
+.cardWrap {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
-.image {
+.card {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -13,7 +13,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 0;
 }
 
 .titleText {
@@ -28,22 +27,22 @@
   margin: 0;
 }
 
-.innerImg {
+.statusImg {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 999;
   position: absolute;
 }
 
-.imageCont {
+.cardCont {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
-.innerTxt {
+.statusTxt {
   font-family: Poppins-SemiBold;
   position: absolute;
 }
