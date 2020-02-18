@@ -1,12 +1,19 @@
 .cardCont {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .image {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
 }
 
 .titleText {
@@ -19,4 +26,24 @@
   font-family: Poppins-Medium;
   font-size: 8pt;
   margin: 0;
+}
+
+.innerImg {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 999;
+  position: absolute;
+}
+
+.imageCont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.innerTxt {
+  font-family: Poppins-SemiBold;
+  position: absolute;
 }
