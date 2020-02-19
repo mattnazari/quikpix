@@ -1,0 +1,38 @@
+.stepsBarWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stepTxt {
+  color: #bbbbbb;
+  font-size: 10px;
+  font-family: Poppins-Light;
+  font-weight: 500;
+}
+
+.blueLine {
+  width: 204px;
+  height: 5px;
+  margin-top: 40px;
+}
+
+.stepsBarCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 600px;
+  align-items: center;
+}
+
+.stepsBarColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepTitleTxt {
+  margin: 0;
+  font-size: 16px;
+  font-family: Poppins-Medium;
+}
