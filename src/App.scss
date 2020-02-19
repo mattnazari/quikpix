@@ -7,6 +7,7 @@
 @import "./comps/Footer/footer.scss";
 @import "./comps//ResultsCard/resultsCard.scss";
 @import "./comps/PlansCard/plansCard.scss";
+@import "./comps/PlanDetails/planDetails.scss";
 
 @font-face {
   font-family: Poppins-SemiBold;
@@ -31,4 +32,8 @@
 @font-face {
   font-family: Poppins-Light;
   src: url(./assets/fonts/Poppins-Light.otf);
+}
+
+p {
+  margin: 0;
 }
