@@ -7,7 +7,12 @@ const Button = ({
   buttonHeight,
   buttonWidth,
   buttonFontSize,
-  buttonBorder
+  buttonBorder,
+  buttonRadius,
+  buttonPosition,
+  buttonMarginL,
+  buttonBGImg,
+  buttonPadding
 }) => {
   return (
     <button
@@ -18,7 +23,12 @@ const Button = ({
         width: buttonWidth,
         height: buttonHeight,
         fontSize: buttonFontSize,
-        border: buttonBorder
+        border: buttonBorder,
+        borderRadius: buttonRadius,
+        position: buttonPosition,
+        marginLeft: buttonMarginL,
+        backgroundImage: buttonBGImg,
+        padding: buttonPadding
       }}
     >
       {buttonTitle}
@@ -33,7 +43,12 @@ Button.defaultProps = {
   buttonWidth: "233px",
   buttonHeight: "62px",
   buttonFontSize: "18pt",
-  buttonBorder: "none"
+  buttonBorder: "none",
+  buttonRadius: "50px",
+  buttonPosition: "",
+  buttonMarginL: "",
+  buttonBGImg: "",
+  buttonPadding: ""
 };
 
 export default Button;
