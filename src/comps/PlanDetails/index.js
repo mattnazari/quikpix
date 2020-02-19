@@ -7,11 +7,13 @@ const PlanDetails = ({
   planTxtColor,
   planTxtWeight,
   planDetailsML,
-  planTxtFont
+  planTxtFont,
+  planDetailsMT,
+  planBotTxtColor
 }) => {
   return (
     <div className="planDetailsWrapper">
-      <div className="planDetailsRow">
+      <div className="planDetailsRow" style={{ marginTop: planDetailsMT }}>
         <img src={planIcon} className="planIcon" />
         <div
           className="planDetailsColumn"
@@ -27,7 +29,9 @@ const PlanDetails = ({
           >
             {planDetailsMainTxt}
           </p>
-          <p className="planDetailsBotTxt">{planDetailsBotTxt}</p>
+          <p className="planDetailsBotTxt" style={{ color: planBotTxtColor }}>
+            {planDetailsBotTxt}
+          </p>
         </div>
       </div>
     </div>
@@ -41,7 +45,9 @@ PlanDetails.defaultProps = {
   planTxtColor: "",
   planTxtWeight: "",
   planDetailsML: "",
-  planTxtFont: ""
+  planTxtFont: "",
+  planDetailsMT: "",
+  planBotTxtColor: ""
 };
 
 export default PlanDetails;
