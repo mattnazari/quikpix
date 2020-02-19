@@ -1,0 +1,68 @@
+.addonsCardWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addonsCard {
+  width: 354px;
+  height: 271px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.addonsTitle {
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  margin: 0;
+}
+
+.addonPriceBotTxt {
+  font-family: Poppins-Light;
+  font-size: 16px;
+}
+
+.addonPriceBotTxt,
+.addonPriceTopTxt {
+  color: #115195;
+}
+
+.addonPriceTopTxt {
+  font-family: Poppins-Medium;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.addonPrice {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.addonsTopSection {
+  background-color: #31c1ff;
+  width: 100%;
+  height: 60px;
+  border-radius: 15px 15px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addonsBotSection {
+  height: 211px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+}

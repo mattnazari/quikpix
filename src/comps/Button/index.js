@@ -10,7 +10,9 @@ const Button = ({
   buttonBorder,
   buttonRadius,
   buttonPosition,
-  buttonMarginL
+  buttonMarginL,
+  buttonBGImg,
+  buttonPadding
 }) => {
   return (
     <button
@@ -24,7 +26,9 @@ const Button = ({
         border: buttonBorder,
         borderRadius: buttonRadius,
         position: buttonPosition,
-        marginLeft: buttonMarginL
+        marginLeft: buttonMarginL,
+        backgroundImage: buttonBGImg,
+        padding: buttonPadding
       }}
     >
       {buttonTitle}
@@ -42,7 +46,9 @@ Button.defaultProps = {
   buttonBorder: "none",
   buttonRadius: "50px",
   buttonPosition: "",
-  buttonMarginL: ""
+  buttonMarginL: "",
+  buttonBGImg: "",
+  buttonPadding: ""
 };
 
 export default Button;

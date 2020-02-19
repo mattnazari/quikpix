@@ -1,5 +1,9 @@
 .button {
   font-family: Poppins-SemiBold;
+  box-sizing: border-box;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .button:hover {

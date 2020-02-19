@@ -37,3 +37,14 @@ export const BackToHomeButton = () => {
     />
   );
 };
+
+export const DownButton = () => {
+  return (
+    <Button
+      buttonTitle=""
+      buttonBGImg="url('http://www.matthewnazari.ca/downButton.svg')"
+      buttonWidth="48px"
+      buttonHeight="48px"
+    />
+  );
+};
