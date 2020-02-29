@@ -5,7 +5,11 @@ import StepsBar from '../../comps/StepsBar';
 import Button from '../../comps/Button';
 import Footer from '../../comps/Footer';
 
+import Dropzone from 'react-dropzone';
+
 const Home = () => {
+  let file;
+
   return (
     <div className='container'>
       <Header />
@@ -19,6 +23,21 @@ const Home = () => {
         firstBLColor="#DAF4FF"
         secondBLColor="#DAF4FF"
       />
+      <Dropzone accept='image/*' onDrop={acceptedFiles => console.log(acceptedFiles)}>
+        {({ getRootProps, getInputProps }) => (
+          <section className='dropzone'>
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              <img height='300' src={require('../../assets/graphics/dropzone.png')} alt='Drop file placeholder' />
+              <div className='dropzone-text'>
+                <p>Drag 'n' drop some files here</p>
+                <p>or click to select files</p>
+                <p>{file}</p>
+              </div>
+            </div>
+          </section>
+        )}
+      </Dropzone>
       <Button buttonTitle="CONVERT" />
       <Footer />
     </div>
