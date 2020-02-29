@@ -1,6 +1,6 @@
 // this is where you import scss files from your comps ex: @import './comps/Menu/menu.scss
 @import "./comps/Button/button.scss";
-@import "./comps//Menu/menu.scss";
+@import "./comps/Menu/menu.scss";
 @import "./comps/Header/header.scss";
 @import "./comps/Card/Card.scss";
 @import "./comps/CardWrapper/cardwrapper.scss";
@@ -10,6 +10,7 @@
 @import "./comps/PlanDetails/planDetails.scss";
 @import "./comps/AddonsCard/addonsCard.scss";
 @import "./comps/StepsBar/stepsBar.scss";
+@import "./screens/Home/Home.scss";
 
 @font-face {
   font-family: Poppins-SemiBold;
