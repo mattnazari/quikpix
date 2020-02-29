@@ -1,0 +1,23 @@
+@mixin flex($dir: column) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: center;
+  align-items: center;
+}
+
+$mp: 30px;
+
+.container { 
+  @include flex();
+}
+
+.dropzone {
+  border: 2px dashed #E1E1E1;
+  border-radius: 10px;
+  margin: $mp;
+  padding: $mp;
+}
+
+.dropzone-text {
+  @include flex();
+}
