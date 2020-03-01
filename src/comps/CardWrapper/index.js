@@ -15,6 +15,8 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
     icon = <IoIosArrowDropdownCircle size={32} color={"31C1FF"} />;
   }
 
+  const obj = ['1', '2', '3']
+
   return (
     <div className="wrapCont">
       <div
