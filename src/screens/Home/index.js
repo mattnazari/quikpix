@@ -17,10 +17,12 @@ const Home = () => {
   const [buttonTitle, setButtonTitle] = useState('UPLOAD')
   const [isDropped, setIsDropped] = useState(false)
 
+  const [width, setWidth] = useState(600)
   const img = {
     display: 'block',
-    width: '600px',
-    height: 'auto'
+    width: `${width}px`,
+    height: 'auto',
+    maxWidth: '100%'
   }
 
   return (
@@ -39,9 +41,23 @@ const Home = () => {
       <Dropzone
         accept='image/*'
         onDrop={acceptedFiles => {
-          setFile(URL.createObjectURL(acceptedFiles[0]));
+          const upload = URL.createObjectURL(acceptedFiles[0]);
+          setFile(upload);
           setButtonTitle('CONVERT');
           setIsDropped(true);
+          console.log(upload)
+          
+          const i = new Image();
+          i.src = upload;
+          i.onload = () => {
+            console.log("current image height:", i.height)
+            console.log("current image width:", i.width)
+            if (i.width > 1000) {
+              setWidth(1000)
+              return
+            }
+            setWidth(i.width)
+          }
         }}
         minSize={0}
         maxSize={5242880}>
