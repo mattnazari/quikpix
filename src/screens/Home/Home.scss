@@ -7,10 +7,6 @@
 
 $mp: 30px;
 
-.container { 
-  @include flex();
-}
-
 .dropzone {
   border: 2px dashed #E1E1E1;
   border-radius: 10px;
@@ -20,4 +16,17 @@ $mp: 30px;
 
 .dropzone-text {
   @include flex();
+}
+
+.flex {
+  @include flex();
+}
+
+.wrapper {
+  margin: $mp;
+}
+
+.center {
+  @include flex();
+  text-align: center;
 }

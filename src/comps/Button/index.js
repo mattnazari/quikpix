@@ -12,10 +12,12 @@ const Button = ({
   buttonPosition,
   buttonMarginL,
   buttonBGImg,
-  buttonPadding
+  buttonPadding,
+  onClick
 }) => {
   return (
     <button
+      onClick={onClick}
       className="button"
       style={{
         backgroundColor: buttonBgColor,
@@ -48,7 +50,8 @@ Button.defaultProps = {
   buttonPosition: "",
   buttonMarginL: "",
   buttonBGImg: "",
-  buttonPadding: ""
+  buttonPadding: "",
+  onClick: () => {}
 };
 
 export default Button;
