@@ -53,7 +53,7 @@ const Home = () => {
             console.log("current image height:", i.height)
             console.log("current image width:", i.width)
             if (i.width > 1000) {
-              setWidth(1000)
+              setWidth(i.width)
               return
             }
             setWidth(i.width)
