@@ -57,13 +57,25 @@ const Home = () => {
       {isUploaded ?
         <div className='wrapper center'>
           {selected.map((result, index) => {
-            return <ResultsCard 
+            return <ResultsCard
               key={index}
               resultsCardTitle={result.title}
               innerImg={result.img}
               dimNum={result.dim}
             />
           })}
+          <Button
+            buttonTitle="CONVERT ANOTHER FILE"
+            buttonBgColor="#31C1FF"
+            buttonWidth="400px"
+            buttonHeight="80px"
+            onClick={() => {
+              setIsDropped(false)
+              setIsUploaded(false)
+              setFile(require('../../assets/graphics/dropzone.png'))
+              setWidth(600)
+            }}
+          />
         </div>
         :
         <div>
