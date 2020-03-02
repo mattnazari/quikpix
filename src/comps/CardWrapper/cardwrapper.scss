@@ -15,6 +15,7 @@
   transition: all 0.35s ease-in-out;
   max-height: 0;
   overflow: hidden;
+  flex-wrap: wrap;
 }
 
 .dropdown_active {

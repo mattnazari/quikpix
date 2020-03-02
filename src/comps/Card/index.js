@@ -16,10 +16,11 @@ const Card = ({
   statusTxtSize,
   statusTxtMTop,
   titleTxtOp,
-  dimTxtOp
+  dimTxtOp,
+  onClick
 }) => {
   return (
-    <div className="cardWrap">
+    <div className="cardWrap" onClick={onClick}>
       <div className="cardCont">
         <div
           className="card"
