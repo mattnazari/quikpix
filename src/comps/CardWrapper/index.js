@@ -15,12 +15,12 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
     icon = <IoIosArrowDropdownCircle size={32} color={"31C1FF"} />;
   }
 
-  // cleaning the title to remove hyphen
+  // cleaning the title to remove hyphen and lowercase it
   const newTitle = title.toLowerCase().replace("-", "");
 
   // change placeholder images here
   const img = {
-    instagram: 'https://i.imgur.com/aN4kH4g.jpg',
+    instagram: 'https://i.imgur.com/tA4jwnb.jpg',
     linkedin: 'https://i.imgur.com/hnCcMMu.jpg',
     facebook: 'https://i.imgur.com/sPQtU5k.jpg',
     twitter: 'https://i.imgur.com/aGYEjtA.jpg',
