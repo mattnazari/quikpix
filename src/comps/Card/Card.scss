@@ -3,6 +3,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  transition: filter 0.2s ease-in-out;
+  &:hover {
+    filter: brightness(85%);
+  }
 }
 
 .card {
