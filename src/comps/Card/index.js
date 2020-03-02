@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 
 const Card = ({
@@ -19,13 +19,28 @@ const Card = ({
   dimTxtOp,
   onClick
 }) => {
+  const [isChecked, setIsChecked] = useState(false)
+  function ToggleChecked() {
+    setIsChecked(!isChecked);
+  }
+  if (isChecked) {
+    bgColor = "#31C1FF"
+    bgImg = ""
+    statusImg = "url('http://www.matthewnazari.ca/check.svg')"
+    statusImgW = "50px"
+    statusImgH = "50px"
+  }
+
   return (
-    <div className="cardWrap" onClick={onClick}>
+    <div className="cardWrap" onClick={() => {
+      onClick()
+      ToggleChecked();
+    }}>
       <div className="cardCont">
         <div
           className="card"
           style={{
-            backgroundImage: bgImg,
+            backgroundImage: `url(${bgImg})`,
             width: cardWidth,
             height: cardHeight,
             backgroundColor: bgColor,
@@ -59,7 +74,7 @@ const Card = ({
 };
 
 Card.defaultProps = {
-  bgImg: "url('https://www.rabata.org/wp-content/uploads/2018/05/dummy.png')",
+  bgImg: "https://www.rabata.org/wp-content/uploads/2018/05/dummy.png",
   cardWidth: "100px",
   cardHeight: "100px",
   titleTxt: "default title text",
