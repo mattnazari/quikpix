@@ -2,9 +2,13 @@ import React from "react";
 import Menu from "../Menu";
 
 const Header = () => {
+  function RefreshPage() {
+    window.location.reload(true)
+  }
+
   return (
     <div className="headerCont">
-      <div className="logo">QuikPix</div>
+      <div className="logo" onClick={RefreshPage}>QuikPix</div>
       <Menu items={headerItems} />
     </div>
   );
