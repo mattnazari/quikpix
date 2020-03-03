@@ -9,6 +9,14 @@ import ResultsCard from '../../comps/ResultsCard';
 
 import Dropzone from 'react-dropzone';
 
+const scrollToTop = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop;
+  if (c > 0) {
+    window.requestAnimationFrame(scrollToTop);
+    window.scrollTo(0, c - c / 8);
+  }
+};
+
 const Home = () => {
   const [file, setFile] = useState(require('../../assets/graphics/dropzone.png'))
   const [buttonTitle, setButtonTitle] = useState('UPLOAD')
@@ -37,24 +45,65 @@ const Home = () => {
     maxWidth: '100%'
   }
 
-  const ConvertImage = () => {
+  // states of the step bar component
+  const [uploadColor, setUploadColor] = useState("#31C1FF")
+  const [chooseColor, setChooseColor] = useState("#5C5C5C")
+  const [convertColor, setConvertColor] = useState("#5C5C5C")
+  const [uploadCheck, setUploadCheck] = useState("http://www.matthewnazari.ca/stepsCheck.svg")
+  const [chooseCheck, setChooseCheck] = useState("http://www.matthewnazari.ca/stepsCheck2nd.svg")
+  const [convertCheck, setConvertCheck] = useState("http://www.matthewnazari.ca/stepsCheck2nd.svg")
+  const [firstBLColor, setFirstBLColor] = useState("#DAF4FF")
+  const [secondBLColor, setSecondBLColor] = useState("#DAF4FF")
+
+  const ChooseStep = () => {
+    // called once a file gets uploaded into drop zone
+    // write code here to get executed once a file is uploaded
+    setChooseColor("#31C1FF")
+    setChooseCheck("http://www.matthewnazari.ca/stepsCheck.svg")
+    setFirstBLColor("#31C1FF")
+    setButtonTitle('CONVERT');
+    setIsDropped(true);
+  }
+
+  const ConvertStep = () => {
+    // called once the user presses CONVERT button during second step
+    // write code here to get executed once user reaches results screen
     setIsUploaded(true);
+    setConvertColor("#31C1FF")
+    setConvertCheck("http://www.matthewnazari.ca/stepsCheck.svg")
+    setSecondBLColor("#31C1FF")
+    scrollToTop()
+  }
+
+  const ConvertAnother = () => {
+    // called once user presses CONVERT ANOTHER button during step 3
+    // write code here to get executed when the user resets to the beginning
+    setChooseColor("#5C5C5C")
+    setConvertColor("#5C5C5C")
+    setChooseCheck("http://www.matthewnazari.ca/stepsCheck2nd.svg")
+    setConvertCheck("http://www.matthewnazari.ca/stepsCheck2nd.svg")
+    setFirstBLColor("#DAF4FF")
+    setSecondBLColor("#DAF4FF")
+    setIsDropped(false)
+    setIsUploaded(false)
+    setFile(require('../../assets/graphics/dropzone.png'))
+    setWidth(600)
   }
 
   return (
     <div>
       <Header />
       <StepsBar
-        uploadColor="#31C1FF"
-        chooseColor="#5C5C5C"
-        convertColor="#5C5C5C"
-        uploadCheck="http://www.matthewnazari.ca/stepsCheck.svg"
-        chooseCheck="http://www.matthewnazari.ca/stepsCheck2nd.svg"
-        convertCheck="http://www.matthewnazari.ca/stepsCheck2nd.svg"
-        firstBLColor="#DAF4FF"
-        secondBLColor="#DAF4FF"
-      />
+        uploadColor={uploadColor}
+        chooseColor={chooseColor}
+        convertColor={convertColor}
+        uploadCheck={uploadCheck}
+        chooseCheck={chooseCheck}
+        convertCheck={convertCheck}
+        firstBLColor={firstBLColor}
+        secondBLColor={secondBLColor} />
       {isUploaded ?
+        // display results if an image was successfully converted
         <div className='wrapper center'>
           {selected.map((result, index) => {
             return <ResultsCard
@@ -70,22 +119,17 @@ const Home = () => {
             buttonWidth="400px"
             buttonHeight="80px"
             onClick={() => {
-              setIsDropped(false)
-              setIsUploaded(false)
-              setFile(require('../../assets/graphics/dropzone.png'))
-              setWidth(600)
+              ConvertAnother()
             }}
           />
         </div>
-        :
+        : // otherwise display the very first step
         <div>
           <Dropzone
             accept='image/*'
             onDrop={acceptedFiles => {
               const upload = URL.createObjectURL(acceptedFiles[0]);
               setFile(upload);
-              setButtonTitle('CONVERT');
-              setIsDropped(true);
               console.log(upload)
 
               const i = new Image();
@@ -99,6 +143,8 @@ const Home = () => {
                 }
                 setWidth(i.width)
               }
+
+              ChooseStep()
             }}
             minSize={0}
             maxSize={5242880}>
@@ -118,8 +164,8 @@ const Home = () => {
             )}
           </Dropzone>
 
-          {isDropped ? (
-            <div className='wrapper'>
+          {isDropped ? // only display social media cards/wrappers once an image is placed into drop zone
+            (<div className='wrapper'>
               <div className='wrapper center'>
                 <h2>Choose Dimension</h2>
                 <p>(Choose up to two)</p>
@@ -133,12 +179,12 @@ const Home = () => {
                 <Button buttonTitle={buttonTitle}
                   onClick={() => {
                     if (isDropped) {
-                      ConvertImage()
+                      ConvertStep()
                     }
                   }} />
               </div>
             </div>
-          ) : <div className='wrapper center'>
+            ) : <div className='wrapper center'>
               <p>Accepted file types: .PNG, .JPG/JPEG, .TIFF, .GIF</p>
             </div>}
         </div>}
