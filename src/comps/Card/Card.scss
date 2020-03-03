@@ -17,6 +17,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  -webkit-box-shadow: 0px 10px 19px 0px rgba(0, 0, 0, 0.27);
+  -moz-box-shadow: 0px 10px 19px 0px rgba(0, 0, 0, 0.27);
+  box-shadow: 0px 10px 19px 0px rgba(0, 0, 0, 0.27);
+  margin-bottom: 12px;
 }
 
 .titleText {
@@ -31,13 +35,6 @@
   margin: 0;
 }
 
-.statusImg {
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  position: absolute;
-}
-
 .cardCont {
   display: flex;
   align-items: center;
@@ -46,7 +43,13 @@
   box-sizing: border-box;
 }
 
+.statusImg {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 1;
+}
+
 .statusTxt {
   font-family: Poppins-SemiBold;
-  position: absolute;
 }

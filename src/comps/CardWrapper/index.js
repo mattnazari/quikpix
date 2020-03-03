@@ -15,39 +15,60 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
     icon = <IoIosArrowDropdownCircle size={32} color={"31C1FF"} />;
   }
 
-  // cleaning the title to remove hyphen
+  // cleaning the title to remove hyphen and lowercase it
   const newTitle = title.toLowerCase().replace("-", "");
+
+  const [isLocked, setIsLocked] = useState(true)
+  
+  // change placeholder images here
+  const img = {
+    instagram: 'https://i.imgur.com/tA4jwnb.jpg',
+    linkedin: 'https://i.imgur.com/hnCcMMu.jpg',
+    facebook: 'https://i.imgur.com/sPQtU5k.jpg',
+    twitter: 'https://i.imgur.com/aGYEjtA.jpg',
+    ecommerce: 'https://i.imgur.com/yL26cVY.jpg',
+  }
   const obj = {
     instagram: [
       {
         titleTxt: 'Profile Picture',
         dimTxt: '110 x 110px',
         cardHeight: '110px',
-        cardWidth: '110px'
+        cardWidth: '110px',
+        bgImg: img.instagram,
+        isLocked: false
       },
       {
         titleTxt: 'Square Post',
         dimTxt: '1080 x 1080px',
         cardHeight: '200px',
-        cardWidth: '200px'
+        cardWidth: '200px',
+        bgImg: img.instagram,
+        isLocked: false
       },
       {
         titleTxt: 'Landscape Post',
         dimTxt: '1350 x 1080px',
         cardHeight: '200px',
-        cardWidth: '250px'
+        cardWidth: '250px',
+        bgImg: img.instagram,
+        isLocked: false
       },
       {
         titleTxt: 'Instagram Story',
         dimTxt: '1080 x 1920px',
         cardHeight: '400px',
-        cardWidth: '200px'
+        cardWidth: '200px',
+        bgImg: img.instagram,
+        isLocked: false
       },
       {
         titleTxt: 'Panorama Bulk Post',
         dimTxt: '1080 x 1080px',
         cardHeight: '200px',
-        cardWidth: '200px'
+        cardWidth: '200px',
+        bgImg: img.instagram,
+        isLocked: isLocked
       }
     ],
     linkedin: [
@@ -55,25 +76,33 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         titleTxt: 'Header Cover Image',
         dimTxt: '1584 x 396px',
         cardHeight: '100px',
-        cardWidth: '350px'
+        cardWidth: '350px',
+        bgImg: img.linkedin,
+        isLocked: false
       },
       {
         titleTxt: 'Profile Picture',
         dimTxt: '400 x 400px',
         cardHeight: '150px',
-        cardWidth: '150px'
+        cardWidth: '150px',
+        bgImg: img.linkedin,
+        isLocked: false
       },
       {
         titleTxt: 'Business Logo',
         dimTxt: '300 x 300px',
         cardHeight: '120px',
-        cardWidth: '120px'
+        cardWidth: '120px',
+        bgImg: img.linkedin,
+        isLocked: isLocked
       },
       {
         titleTxt: 'Company Photo',
         dimTxt: '900 x 600px',
         cardHeight: '150px',
-        cardWidth: '300px'
+        cardWidth: '300px',
+        bgImg: img.linkedin,
+        isLocked: isLocked
       }
     ],
     facebook: [
@@ -81,49 +110,61 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         titleTxt: 'Header Cover Image',
         dimTxt: '1200 x 675px',
         cardHeight: '100px',
-        cardWidth: '350px'
+        cardWidth: '350px',
+        bgImg: img.facebook
       },
       {
         titleTxt: 'Profile Picture',
         dimTxt: '180 x 180px',
         cardHeight: '150px',
-        cardWidth: '150px'
+        cardWidth: '150px',
+        bgImg: img.facebook
       },
       {
         titleTxt: 'Shared Link Image',
         dimTxt: '1200 x 630px',
         cardHeight: '120px',
-        cardWidth: '120px'
+        cardWidth: '120px',
+        bgImg: img.facebook
       },
       {
         titleTxt: 'Event Image',
         dimTxt: '1920 x 1080px',
         cardHeight: '150px',
-        cardWidth: '300px'
+        cardWidth: '300px',
+        bgImg: img.facebook
       },
       {
         titleTxt: 'Group Cover Image',
         dimTxt: '1640 x 859px',
         cardHeight: '100px',
-        cardWidth: '350px'
+        cardWidth: '350px',
+        bgImg: img.facebook,
+        isLocked: isLocked
       },
       {
         titleTxt: 'Carousel Ad',
         dimTxt: '1080 x 1080px',
         cardHeight: '150px',
-        cardWidth: '150px'
+        cardWidth: '150px',
+        bgImg: img.facebook,
+        isLocked: isLocked
       },
       {
         titleTxt: 'Facebook Story',
         dimTxt: '1080 x 1920px',
         cardHeight: '400px',
-        cardWidth: '200px'
+        cardWidth: '200px',
+        bgImg: img.facebook,
+        isLocked: isLocked
       },
       {
         titleTxt: 'Link Ad',
         dimTxt: '1200 x 628px',
         cardHeight: '150px',
-        cardWidth: '300px'
+        cardWidth: '300px',
+        bgImg: img.facebook,
+        isLocked: isLocked
       }
     ],
     twitter: [
@@ -132,6 +173,8 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1584 x 396px',
         cardHeight: '100px',
         cardWidth: '350px',
+        bgImg: img.twitter,
+        isLocked: false,
         data: {
           title: null, // this should dynamically grab titleTxt from level above ?
           width: 1584,
@@ -142,19 +185,25 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         titleTxt: 'Profile Picture',
         dimTxt: '400 x 400px',
         cardHeight: '150px',
-        cardWidth: '150px'
+        cardWidth: '150px',
+        bgImg: img.twitter,
+        isLocked: false,
       },
       {
         titleTxt: 'Tweet Image',
         dimTxt: '1200 x 675px',
         cardHeight: '160px',
-        cardWidth: '220px'
+        cardWidth: '220px',
+        bgImg: img.twitter,
+        isLocked: isLocked
       },
       {
         titleTxt: 'Shared Link Image',
         dimTxt: '1200 x 628px',
         cardHeight: '160px',
-        cardWidth: '200px'
+        cardWidth: '200px',
+        bgImg: img.twitter,
+        isLocked: isLocked
       }
     ],
     ecommerce: [
@@ -162,19 +211,24 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         titleTxt: 'Company Logo',
         dimTxt: '100 x 100px',
         cardHeight: '110px',
-        cardWidth: '110px'
+        cardWidth: '110px',
+        bgImg: img.ecommerce,
       },
       {
         titleTxt: 'Hero Image',
         dimTxt: '1920 x 800px',
         cardHeight: '250px',
-        cardWidth: '420px'
+        cardWidth: '420px',
+        bgImg: img.ecommerce,
+        isLocked: isLocked
       },
       {
         titleTxt: 'Product Image',
         dimTxt: '800 x 800px',
         cardHeight: '300px',
-        cardWidth: '300px'
+        cardWidth: '300px',
+        bgImg: img.ecommerce,
+        isLocked: isLocked
       },
     ],
   }
@@ -201,11 +255,13 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
           dimTxt={card.dimTxt}
           cardHeight={card.cardHeight}
           cardWidth={card.cardWidth}
+          bgImg={card.bgImg}
+          isLocked={card.isLocked}
           onClick={() => {
-            alert(`You clicked ${card.titleTxt}`)
-            console.log(`card index: ${index}`)
             console.log(`card title: ${card.titleTxt}`)
+            console.log(`card index: ${index}`)
             console.log(`card data: ${JSON.stringify(card.data)}`)
+            console.log(`card locked status: ${card.isLocked}`)
           }}/>
         }) : null }
       </div>
