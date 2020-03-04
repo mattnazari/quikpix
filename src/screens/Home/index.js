@@ -120,6 +120,15 @@ const Home = () => {
         <div className='wrapper center'>
           <h2>Results</h2>
           {selected.map((result, index) => {
+            const str = result.dimTxt.split(" ")
+            // converting to number from str, cleaning the str
+            const width = parseInt(str[0])
+            const height = parseInt(str[2].replace("px", ""))
+
+            console.log(`result ${index} dimensions`)
+            console.log('width:', width)
+            console.log('height:', height)
+
             return <ResultsCard
               key={index}
               resultsCardTitle={result.titleTxt}
