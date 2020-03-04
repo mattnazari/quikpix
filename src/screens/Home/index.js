@@ -22,20 +22,31 @@ const Home = () => {
   const [buttonTitle, setButtonTitle] = useState('UPLOAD')
   const [isDropped, setIsDropped] = useState(false)
   const [isUploaded, setIsUploaded] = useState(false)
-  const [selected, setSelected] = useState(
-    [ // currently hardcoded data
-      {
-        title: 'Result One',
-        img: 'http://www.matthewnazari.ca/DummyImg.svg',
-        dim: '69 x 420'
-      },
-      {
-        title: 'Result Two',
-        img: 'http://www.matthewnazari.ca/DummyImg.svg',
-        dim: '69 x 420'
-      }
-    ]
-  )
+  const [selected, setSelected] = useState([])
+
+  const pushSelected = (obj) => {
+    // executed on click of a card
+    // need to write code to limit pushing more than 2 selections
+    // if not a premium user
+    var arr = selected;
+    if(arr.length < 2){
+      arr.push(obj);
+      setSelected(arr);
+    } else {
+      alert('Choose 2 dimensions only MODAL')
+    }
+    console.log('selected array:', selected)
+  }
+
+  const spliceSelected = (obj) => {
+    var arr = selected;
+    const index = arr.indexOf(obj);
+    if (index > -1) {
+      arr.splice(index, 1);
+      setSelected(arr);
+    }
+    console.log('splice array:', selected)
+  }
 
   const [width, setWidth] = useState(600)
   const img = {
@@ -88,6 +99,7 @@ const Home = () => {
     setIsUploaded(false)
     setFile(require('../../assets/graphics/dropzone.png'))
     setWidth(600)
+    setSelected([])
   }
 
   return (
@@ -108,9 +120,10 @@ const Home = () => {
           {selected.map((result, index) => {
             return <ResultsCard
               key={index}
-              resultsCardTitle={result.title}
+              resultsCardTitle={result.titleTxt}
+              resultsCardIcon={result.logo}
               innerImg={result.img}
-              dimNum={result.dim}
+              dimNum={result.dimTxt}
             />
           })}
           <Button
@@ -170,11 +183,31 @@ const Home = () => {
                 <h2>Choose Dimension</h2>
                 <p>(Choose up to two)</p>
               </div>
-              <CardWrapper type='dropdown' title='Instagram' mediaIcon='https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png' />
-              <CardWrapper type='dropdown' title='LinkedIn' mediaIcon='https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg' />
-              <CardWrapper type='dropdown' title='Facebook' mediaIcon='https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png' />
-              <CardWrapper type='dropdown' title='Twitter' mediaIcon='https://i.imgur.com/DTlQVjT.png' />
-              <CardWrapper type='dropdown' title='E-Commerce' mediaIcon='https://i.imgur.com/cED6SbI.png' />
+              <CardWrapper type='dropdown' title='Instagram'
+                pushSelected={pushSelected}
+                spliceSelected={spliceSelected}
+                selected={selected}
+                mediaIcon='https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png' />
+              <CardWrapper type='dropdown' title='LinkedIn'
+                pushSelected={pushSelected}
+                spliceSelected={spliceSelected}
+                selected={selected}
+                mediaIcon='https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg' />
+              <CardWrapper type='dropdown' title='Facebook'
+                pushSelected={pushSelected}
+                spliceSelected={spliceSelected}
+                selected={selected}
+                mediaIcon='https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png' />
+              <CardWrapper type='dropdown' title='Twitter'
+                pushSelected={pushSelected}
+                spliceSelected={spliceSelected}
+                selected={selected}
+                mediaIcon='https://i.imgur.com/DTlQVjT.png' />
+              <CardWrapper type='dropdown' title='E-Commerce'
+                pushSelected={pushSelected}
+                spliceSelected={spliceSelected}
+                selected={selected}
+                mediaIcon='https://i.imgur.com/cED6SbI.png' />
               <div className='wrapper center'>
                 <Button buttonTitle={buttonTitle}
                   onClick={() => {

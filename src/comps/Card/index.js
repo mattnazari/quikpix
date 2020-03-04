@@ -18,10 +18,14 @@ const Card = ({
   titleTxtOp,
   dimTxtOp,
   onClick,
-  isLocked
+  isLocked,
+  selected,
+  pushSelected,
+  spliceSelected,
+  card
 }) => {
   const [isChecked, setIsChecked] = useState(false)
-  function ToggleChecked() {
+  const ToggleChecked = () => {
     setIsChecked(!isChecked);
   }
 
@@ -47,7 +51,14 @@ const Card = ({
     <div className="cardWrap" onClick={() => {
       onClick()
       if (!isLocked) {
-        ToggleChecked();
+        const i = selected.indexOf(card);
+        if (i > -1) {
+          spliceSelected(card)
+          ToggleChecked();
+        } else {
+          pushSelected(card)
+          ToggleChecked();
+        }
       }
     }}>
       <div className="cardCont">

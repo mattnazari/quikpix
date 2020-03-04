@@ -20,7 +20,7 @@ const ResultsCard = ({
       <div className="resultsCard">
         <div className="leftCardSection">
           <img className="innerImg" src={innerImg}></img>
-          <p className="dimNumTxt">Dimension: {dimNum} px</p>
+          <p className="dimNumTxt">Dimension: {dimNum}</p>
         </div>
         <div className="rightCardSection">
           <div className="copyInputTopCont">
