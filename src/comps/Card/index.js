@@ -59,6 +59,9 @@ const Card = ({
           pushSelected(card)
           ToggleChecked();
         }
+      } else {
+        // replace this with a modal
+        alert('Premium Modal Alert')
       }
     }}>
       <div className="cardCont">

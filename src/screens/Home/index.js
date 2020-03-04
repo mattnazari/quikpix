@@ -84,6 +84,7 @@ const Home = () => {
     setConvertCheck("http://www.matthewnazari.ca/stepsCheck.svg")
     setSecondBLColor("#31C1FF")
     scrollToTop()
+    console.log('current image:', file)
   }
 
   const ConvertAnother = () => {
@@ -117,6 +118,7 @@ const Home = () => {
       {isUploaded ?
         // display results if an image was successfully converted
         <div className='wrapper center'>
+          <h2>Results</h2>
           {selected.map((result, index) => {
             return <ResultsCard
               key={index}
