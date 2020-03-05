@@ -66,6 +66,12 @@ const Home = () => {
     })
   }
 
+  const [convertedImage, setConvertedImage] = useState('')
+  function saveAs(f){
+    FileSaver.saveAs(f, 'convertedimage.jpeg')
+    console.log('file downloaded')
+  }
+
   const pushSelected = (obj) => {
     // executed on click of a card
     // need to write code to limit pushing more than 2 selections
@@ -162,6 +168,7 @@ const Home = () => {
         <div className='wrapper center'>
           <h2>Results</h2>
           {selected.map((result, index) => {
+            console.log('it is looping from here')
             const str = result.dimTxt.split(" ")
             // converting to number from str, cleaning the str
             const width = parseInt(str[0])
@@ -182,14 +189,11 @@ const Home = () => {
                 console.log('successfile:', successFile)
 
                 const image = URL.createObjectURL(successFile)
-                console.log('new image:', image)
 
-                // temporarily automatically downloads the converted images
-                // ---- (TODO)
-                // create a state for the converted image
-                // and pass a function to the download button
-                FileSaver.saveAs(image, 'convertedimage.jpeg')
-                console.log('file downloaded')
+                console.log('convertedImage:', convertedImage)
+                setConvertedImage(image) // looping due to setting this state
+                console.log('new image:', image)
+                return
               }).catch((errorFile) => {
                 console.log('error in converting the image')
                 console.log(errorFile)
@@ -203,6 +207,8 @@ const Home = () => {
               dimNum={result.dimTxt}
               width={cWidth}
               height={cHeight}
+              saveAs={saveAs}
+              convertedImage={convertedImage}
             />
           })}
           <Button

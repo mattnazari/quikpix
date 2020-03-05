@@ -7,7 +7,9 @@ const ResultsCard = ({
   resultsCardIcon,
   resultsCardTitle,
   height,
-  width
+  width,
+  saveAs,
+  convertedImage
 }) => {
   return (
     <div className="resultsCardWrapper">
@@ -63,6 +65,9 @@ const ResultsCard = ({
             buttonWidth="176px"
             buttonHeight="47px"
             buttonFontSize="16px"
+            onClick={() => {
+              saveAs(convertedImage)
+            }}
           />
         </div>
       </div>
