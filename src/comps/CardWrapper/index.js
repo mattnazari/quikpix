@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Card from "../Card";
 import { IoIosArrowDropdownCircle, IoIosArrowDropdown } from "react-icons/io";
 
-const CardWrapper = ({ type, title, mediaIcon }) => {
+const CardWrapper = ({ type, title, mediaIcon, pushSelected, spliceSelected, selected }) => {
   let cn;
   if (type === "dropdown") {
     cn = "dropdown";
@@ -19,7 +19,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
   const newTitle = title.toLowerCase().replace("-", "");
 
   const [isLocked, setIsLocked] = useState(true)
-  
+
   // change placeholder images here
   const img = {
     instagram: 'https://i.imgur.com/tA4jwnb.jpg',
@@ -28,6 +28,15 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
     twitter: 'https://i.imgur.com/aGYEjtA.jpg',
     ecommerce: 'https://i.imgur.com/yL26cVY.jpg',
   }
+
+  const logo = {
+    instagram: 'https://instagram-brand.com/wp-content/uploads/2016/11/Instagram_AppIcon_Aug2017.png',
+    linkedin: 'https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg',
+    facebook: 'https://en.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png',
+    twitter: 'https://i.imgur.com/DTlQVjT.png',
+    ecommerce: 'https://i.imgur.com/cED6SbI.png',
+  }
+
   const obj = {
     instagram: [
       {
@@ -35,6 +44,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '110 x 110px',
         cardHeight: '110px',
         cardWidth: '110px',
+        logo: logo.instagram,
         bgImg: img.instagram,
         isLocked: false
       },
@@ -43,6 +53,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1080 x 1080px',
         cardHeight: '200px',
         cardWidth: '200px',
+        logo: logo.instagram,
         bgImg: img.instagram,
         isLocked: false
       },
@@ -51,6 +62,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1350 x 1080px',
         cardHeight: '200px',
         cardWidth: '250px',
+        logo: logo.instagram,
         bgImg: img.instagram,
         isLocked: false
       },
@@ -59,6 +71,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1080 x 1920px',
         cardHeight: '400px',
         cardWidth: '200px',
+        logo: logo.instagram,
         bgImg: img.instagram,
         isLocked: false
       },
@@ -67,6 +80,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1080 x 1080px',
         cardHeight: '200px',
         cardWidth: '200px',
+        logo: logo.instagram,
         bgImg: img.instagram,
         isLocked: isLocked
       }
@@ -77,6 +91,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1584 x 396px',
         cardHeight: '100px',
         cardWidth: '350px',
+        logo: logo.linkedin,
         bgImg: img.linkedin,
         isLocked: false
       },
@@ -85,6 +100,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '400 x 400px',
         cardHeight: '150px',
         cardWidth: '150px',
+        logo: logo.linkedin,
         bgImg: img.linkedin,
         isLocked: false
       },
@@ -93,6 +109,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '300 x 300px',
         cardHeight: '120px',
         cardWidth: '120px',
+        logo: logo.linkedin,
         bgImg: img.linkedin,
         isLocked: isLocked
       },
@@ -101,6 +118,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '900 x 600px',
         cardHeight: '150px',
         cardWidth: '300px',
+        logo: logo.linkedin,
         bgImg: img.linkedin,
         isLocked: isLocked
       }
@@ -111,6 +129,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1200 x 675px',
         cardHeight: '100px',
         cardWidth: '350px',
+        logo: logo.facebook,
         bgImg: img.facebook
       },
       {
@@ -118,6 +137,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '180 x 180px',
         cardHeight: '150px',
         cardWidth: '150px',
+        logo: logo.facebook,
         bgImg: img.facebook
       },
       {
@@ -125,6 +145,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1200 x 630px',
         cardHeight: '120px',
         cardWidth: '120px',
+        logo: logo.facebook,
         bgImg: img.facebook
       },
       {
@@ -132,6 +153,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1920 x 1080px',
         cardHeight: '150px',
         cardWidth: '300px',
+        logo: logo.facebook,
         bgImg: img.facebook
       },
       {
@@ -139,6 +161,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1640 x 859px',
         cardHeight: '100px',
         cardWidth: '350px',
+        logo: logo.facebook,
         bgImg: img.facebook,
         isLocked: isLocked
       },
@@ -147,6 +170,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1080 x 1080px',
         cardHeight: '150px',
         cardWidth: '150px',
+        logo: logo.facebook,
         bgImg: img.facebook,
         isLocked: isLocked
       },
@@ -155,6 +179,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1080 x 1920px',
         cardHeight: '400px',
         cardWidth: '200px',
+        logo: logo.facebook,
         bgImg: img.facebook,
         isLocked: isLocked
       },
@@ -163,6 +188,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1200 x 628px',
         cardHeight: '150px',
         cardWidth: '300px',
+        logo: logo.facebook,
         bgImg: img.facebook,
         isLocked: isLocked
       }
@@ -173,6 +199,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1584 x 396px',
         cardHeight: '100px',
         cardWidth: '350px',
+        logo: logo.twitter,
         bgImg: img.twitter,
         isLocked: false,
         data: {
@@ -186,6 +213,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '400 x 400px',
         cardHeight: '150px',
         cardWidth: '150px',
+        logo: logo.twitter,
         bgImg: img.twitter,
         isLocked: false,
       },
@@ -194,6 +222,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1200 x 675px',
         cardHeight: '160px',
         cardWidth: '220px',
+        logo: logo.twitter,
         bgImg: img.twitter,
         isLocked: isLocked
       },
@@ -202,6 +231,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1200 x 628px',
         cardHeight: '160px',
         cardWidth: '200px',
+        logo: logo.twitter,
         bgImg: img.twitter,
         isLocked: isLocked
       }
@@ -212,6 +242,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '100 x 100px',
         cardHeight: '110px',
         cardWidth: '110px',
+        logo: logo.ecommerce,
         bgImg: img.ecommerce,
       },
       {
@@ -219,6 +250,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '1920 x 800px',
         cardHeight: '250px',
         cardWidth: '420px',
+        logo: logo.ecommerce,
         bgImg: img.ecommerce,
         isLocked: isLocked
       },
@@ -227,6 +259,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         dimTxt: '800 x 800px',
         cardHeight: '300px',
         cardWidth: '300px',
+        logo: logo.ecommerce,
         bgImg: img.ecommerce,
         isLocked: isLocked
       },
@@ -239,8 +272,7 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
         className="bar"
         onClick={() => {
           setVisible(!visible);
-        }}
-      >
+        }}>
         <div className="row">
           <img src={mediaIcon} height="32" />
           <h3>{title}</h3>
@@ -249,21 +281,25 @@ const CardWrapper = ({ type, title, mediaIcon }) => {
       </div>
       <div className={cn}>
         {obj[newTitle] ? obj[newTitle].map((card, index) => {
-          return <Card 
-          key={index}
-          titleTxt={card.titleTxt}
-          dimTxt={card.dimTxt}
-          cardHeight={card.cardHeight}
-          cardWidth={card.cardWidth}
-          bgImg={card.bgImg}
-          isLocked={card.isLocked}
-          onClick={() => {
-            console.log(`card title: ${card.titleTxt}`)
-            console.log(`card index: ${index}`)
-            console.log(`card data: ${JSON.stringify(card.data)}`)
-            console.log(`card locked status: ${card.isLocked}`)
-          }}/>
-        }) : null }
+          return <Card
+            key={index}
+            titleTxt={card.titleTxt}
+            dimTxt={card.dimTxt}
+            cardHeight={card.cardHeight}
+            cardWidth={card.cardWidth}
+            bgImg={card.bgImg}
+            isLocked={card.isLocked}
+            selected={selected}
+            pushSelected={pushSelected}
+            spliceSelected={spliceSelected}
+            card={card}
+            onClick={() => {
+              console.log(`card title: ${card.titleTxt}`)
+              console.log(`card index: ${index}`)
+              console.log(`card data: ${JSON.stringify(card.data)}`)
+              console.log(`card locked status: ${card.isLocked}`)
+            }} />
+        }) : null}
       </div>
     </div>
   );

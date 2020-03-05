@@ -5,7 +5,11 @@ const ResultsCard = ({
   innerImg,
   dimNum,
   resultsCardIcon,
-  resultsCardTitle
+  resultsCardTitle,
+  height,
+  width,
+  saveAs,
+  convertedImage
 }) => {
   return (
     <div className="resultsCardWrapper">
@@ -19,8 +23,8 @@ const ResultsCard = ({
       </div>
       <div className="resultsCard">
         <div className="leftCardSection">
-          <img className="innerImg" src={innerImg}></img>
-          <p className="dimNumTxt">Dimension: {dimNum} px</p>
+          <img className="innerImg" src={innerImg} height={height} width={width}></img>
+          <p className="dimNumTxt">Dimension: {dimNum}</p>
         </div>
         <div className="rightCardSection">
           <div className="copyInputTopCont">
@@ -61,6 +65,9 @@ const ResultsCard = ({
             buttonWidth="176px"
             buttonHeight="47px"
             buttonFontSize="16px"
+            onClick={() => {
+              saveAs(convertedImage)
+            }}
           />
         </div>
       </div>

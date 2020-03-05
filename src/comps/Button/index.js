@@ -13,6 +13,8 @@ const Button = ({
   buttonMarginL,
   buttonBGImg,
   buttonPadding,
+  saveAs,
+  convertedImage,
   onClick
 }) => {
   return (

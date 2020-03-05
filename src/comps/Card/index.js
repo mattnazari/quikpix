@@ -18,10 +18,14 @@ const Card = ({
   titleTxtOp,
   dimTxtOp,
   onClick,
-  isLocked
+  isLocked,
+  selected,
+  pushSelected,
+  spliceSelected,
+  card
 }) => {
   const [isChecked, setIsChecked] = useState(false)
-  function ToggleChecked() {
+  const ToggleChecked = () => {
     setIsChecked(!isChecked);
   }
 
@@ -37,17 +41,27 @@ const Card = ({
     statusImg = "http://www.matthewnazari.ca/lock.svg"
     statusImgW = "50px"
     statusImgH = "50px"
-    bgOpacity = "0.75"
+    bgOpacity = "0.45"
     statusTxt = "Upgrade to unlock"
-    titleTxtOp = "0.75"
-    dimTxtOp = "0.75"
+    titleTxtOp = "0.45"
+    dimTxtOp = "0.45"
   }
 
   return (
     <div className="cardWrap" onClick={() => {
       onClick()
       if (!isLocked) {
-        ToggleChecked();
+        const i = selected.indexOf(card);
+        if (i > -1) {
+          spliceSelected(card)
+          ToggleChecked();
+        } else {
+          pushSelected(card)
+          ToggleChecked();
+        }
+      } else {
+        // replace this with a modal
+        alert('Premium Modal Alert')
       }
     }}>
       <div className="cardCont">
@@ -59,24 +73,20 @@ const Card = ({
             height: cardHeight,
             backgroundColor: bgColor,
             opacity: bgOpacity
-          }}
-        >
+          }}>
           <div
-          className="statusImg"
-          style={{
-            backgroundImage: `url(${statusImg})`,
-            width: statusImgW,
-            height: statusImgH
-          }}
-        ></div>
-        <p
-          className="statusTxt"
-          style={{ fontSize: statusTxtSize, marginTop: statusTxtMTop }}
-        >
-          {statusTxt}
-        </p>
+            className="statusImg"
+            style={{
+              backgroundImage: `url(${statusImg})`,
+              width: statusImgW,
+              height: statusImgH
+            }}></div>
+          <p className="statusTxt"
+            style={{ fontSize: statusTxtSize, marginTop: statusTxtMTop }}>
+            {statusTxt}
+          </p>
         </div>
-        
+
       </div>
 
       <p className="titleText" style={{ opacity: titleTxtOp }}>
@@ -102,7 +112,7 @@ Card.defaultProps = {
   statusImgW: "",
   bgOpacity: "",
   statusTxtSize: "12px",
-  statusTxtMTop: "50px",
+  statusTxtMTop: "",
   titleTxtOp: "",
   dimTxtOp: ""
 };

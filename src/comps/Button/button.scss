@@ -4,8 +4,10 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-}
+  transition: filter 0.2s ease-in-out;
 
-.button:hover {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+    filter: brightness(112%);
+  }
 }
