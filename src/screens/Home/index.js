@@ -225,7 +225,7 @@ const Home = () => {
         <div>
           <Dropzone
             accept='image/*'
-            onDrop={acceptedFiles => {
+            onDropAccepted={acceptedFiles => {
               const upload = URL.createObjectURL(acceptedFiles[0]);
               setFile(upload);
               console.log(upload)
@@ -243,6 +243,10 @@ const Home = () => {
               }
 
               ChooseStep()
+            }}
+            onDropRejected={() => {
+              // replace this with a real modal
+              alert('Image too large! [REPLACE]')
             }}
             minSize={0}
             maxSize={5242880}>
@@ -297,7 +301,12 @@ const Home = () => {
                 <Button buttonTitle={buttonTitle}
                   onClick={() => {
                     if (isDropped) {
-                      ConvertStep()
+                      if (selected.length !== 0) {
+                        ConvertStep()
+                      } else {
+                        // replace this with a custom modal
+                        alert('you have nothing selected MODAL')
+                      }
                     }
                   }} />
               </div>
