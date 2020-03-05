@@ -5,7 +5,9 @@ const ResultsCard = ({
   innerImg,
   dimNum,
   resultsCardIcon,
-  resultsCardTitle
+  resultsCardTitle,
+  height,
+  width
 }) => {
   return (
     <div className="resultsCardWrapper">
@@ -19,7 +21,7 @@ const ResultsCard = ({
       </div>
       <div className="resultsCard">
         <div className="leftCardSection">
-          <img className="innerImg" src={innerImg}></img>
+          <img className="innerImg" src={innerImg} height={height} width={width}></img>
           <p className="dimNumTxt">Dimension: {dimNum}</p>
         </div>
         <div className="rightCardSection">

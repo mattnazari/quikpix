@@ -8,6 +8,7 @@ import CardWrapper from '../../comps/CardWrapper';
 import ResultsCard from '../../comps/ResultsCard';
 
 import Dropzone from 'react-dropzone';
+import FileSaver, { saveAs } from 'file-saver';
 
 const scrollToTop = () => {
   const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -24,12 +25,53 @@ const Home = () => {
   const [isUploaded, setIsUploaded] = useState(false)
   const [selected, setSelected] = useState([])
 
+  // function that takes an image url
+  // to build a new image and canvas from
+  // that image based on selected dimensions
+  // and return it to the client as a blob
+  const newImage = (url, width, height) => {
+    return new Promise((resolve, reject) => {
+      var img = new Image()
+      img.src = url
+      img.width = width
+      img.height = height
+
+      img.onload = () => {
+        // need a way to properly crop the canvas
+        // to maintain aspect ratio
+        // and to keep the image looking proper
+        const canvas = document.createElement('canvas')
+        canvas.width = width
+        canvas.height = height
+
+        const ctx = canvas.getContext('2d')
+        ctx.drawImage(img, 0, 0, width, height)
+
+        // canvas toBlob to convert svg to png
+        ctx.canvas.toBlob(
+          blob => { // need to allow dynamic input for the file name
+            const convert = new File([blob], 'convert.png', {
+              type: 'image/png',
+              lastModified: Date.now()
+            })
+            resolve(convert)
+          },
+          'image/png',
+          1
+        )
+      }
+      img.onerror = () => {
+        reject(img)
+      }
+    })
+  }
+
   const pushSelected = (obj) => {
     // executed on click of a card
     // need to write code to limit pushing more than 2 selections
     // if not a premium user
     var arr = selected;
-    if(arr.length < 2){
+    if (arr.length < 2) {
       arr.push(obj);
       setSelected(arr);
     } else {
@@ -125,16 +167,42 @@ const Home = () => {
             const width = parseInt(str[0])
             const height = parseInt(str[2].replace("px", ""))
 
+            // getting dimensions for the resultimg for styling purposes
+            // this is not dimensions for the converted image
+            const cWidth = parseInt(result.cardWidth.replace("px", ""))
+            const cHeight = parseInt(result.cardHeight.replace("px", ""))
+
             console.log(`result ${index} dimensions`)
             console.log('width:', width)
             console.log('height:', height)
+
+            newImage(file, width, height)
+              .then((successFile) => {
+                console.log('image successfully converted')
+                console.log('successfile:', successFile)
+
+                const image = URL.createObjectURL(successFile)
+                console.log('new image:', image)
+
+                // temporarily automatically downloads the converted images
+                // ---- (TODO)
+                // create a state for the converted image
+                // and pass a function to the download button
+                FileSaver.saveAs(image, 'convertedimage.jpeg')
+                console.log('file downloaded')
+              }).catch((errorFile) => {
+                console.log('error in converting the image')
+                console.log(errorFile)
+              })
 
             return <ResultsCard
               key={index}
               resultsCardTitle={result.titleTxt}
               resultsCardIcon={result.logo}
-              innerImg={result.img}
+              innerImg={file}
               dimNum={result.dimTxt}
+              width={cWidth}
+              height={cHeight}
             />
           })}
           <Button
