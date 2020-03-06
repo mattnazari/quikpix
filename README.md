@@ -1,18 +1,15 @@
 # QuikPix
-> QuikPix slogan.
+> Your pictures, quicker.
 
 
-QuikPix short description.
+QuikPix is a Software as a Service product that simplifies the process of mass image conversion and image resizing.
 
 
-![](https://i.imgur.com/GDD4dzB.png)
+![](https://i.imgur.com/wMMl0tH.jpg)
 
 ---
 
-## Live Demo
-```sh
-insert link here
-```
+## [Live Demo](https://micahmones.ca/quikpix/)
 
 ## Meta
 
