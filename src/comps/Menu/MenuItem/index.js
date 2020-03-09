@@ -6,7 +6,7 @@ const MenuItem = ({ itemTitle, OnClick, itemTitleColor, itemWidth }) => {
       className="menuItemCont"
       style={{ color: itemTitleColor, width: itemWidth }}
     >
-      {itemTitle}
+      <p className="link">{itemTitle}</p>
     </div>
   );
 };
