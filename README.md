@@ -1,8 +1,33 @@
-# quikpix
-## Dev Notes
-**Components created:** Header, Footer, Button, Card, CardWrapper, StepsBar, AddonsCard, PlansCard, and ResultsCard. <br/> <br/>
-**Reason for creating 3 seperate card components:** having one component for all 3 cards made the code messy and hard to read. Also, it would be more difficult to implement into the pages since you have to add alot of props for each card. Having 3 seperate cards makes each component easy to use and customize. <br/> <br/>
-**Reason for not making a DropFile component:** Originally we decided to make a component for the upload a file part of the page. However, it was only used on one page. We decided it would be a waste of time to work on this and instead focused on other components.  <br/> <br/>
-## Dev Research
-**react-dropzone:** We will be using this for file uploads on our website. https://github.com/react-dropzone/react-dropzone<br/> <br/>
-**react-router-dom:** We will be using this for navigation between pages. https://reacttraining.com/react-router/web/guides/quick-start
+# QuikPix
+> Your pictures, quicker.
+
+
+QuikPix is a Software as a Service product that simplifies the process of mass image conversion and image resizing.
+
+
+![](https://i.imgur.com/wMMl0tH.jpg)
+
+---
+
+## [Live Demo](https://micahmones.ca/quikpix/)
+
+## Meta
+
+Micah Mones – [@micah.mones](https://instagram.com/micah.mones) – micahmones@gmail.com  
+[https://github.com/micahmones](https://github.com/micahmones)  
+
+Matthew Nazari – mattnazari8@gmail.com  
+[https://github.com/mattnazari](https://github.com/mattnazari/)
+
+## Team
+
+* Micah Mones - [https://github.com/micahmones](https://github.com/micahmones)  
+* Matthew Nazari - [https://github.com/mattnazari](https://github.com/mattnazari/)  
+* Tasha Ping - [https://github.com/tashavithaya](https://github.com/tashavithaya)  
+* Heidi Tang - [https://github.com/heiditang](https://github.com/heiditang)  
+
+---
+
+## Special Contributors
+
+* Henry Leung - for being there when we needed his God-given coding skills
