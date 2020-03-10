@@ -1,19 +1,22 @@
 import React from "react";
 
+import {
+  Link
+} from "react-router-dom";
+
 const MenuItem = ({ itemTitle, OnClick, itemTitleColor, itemWidth }) => {
   return (
     <div
       className="menuItemCont"
-      style={{ color: itemTitleColor, width: itemWidth }}
-    >
-      <p className="link">{itemTitle}</p>
+      style={{ color: itemTitleColor, width: itemWidth }}>
+      <Link className="link" to={itemTitle}>{itemTitle}</Link>
     </div>
   );
 };
 
 MenuItem.defaultProps = {
   itemTitle: "default title",
-  OnClick: () => {},
+  OnClick: () => { },
   itemTitleColor: "#101010",
   itemWidth: ""
 };

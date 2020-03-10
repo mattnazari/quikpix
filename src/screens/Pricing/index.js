@@ -6,6 +6,8 @@ import AddonsCard from '../../comps/AddonsCard';
 import Button from '../../comps/Button';
 import Footer from '../../comps/Footer';
 
+import { Link } from 'react-router-dom';
+
 const Pricing = () => {
   return (
     <div>
@@ -72,11 +74,13 @@ const Pricing = () => {
           addonsTitle="Unlimited Dimensions" />
       </div>
       <div className='flex wrapper'>
-        <Button
-          buttonTitle="Back to Home"
-          buttonBgColor="transparent"
-          buttonTextColor="#FFB647"
-          buttonBorder="2px solid #FFB647" />
+        <Link to='/'>
+          <Button
+            buttonTitle="Back to Home"
+            buttonBgColor="transparent"
+            buttonTextColor="#FFB647"
+            buttonBorder="2px solid #FFB647" />
+        </Link>
       </div>
       <Footer />
     </div>
