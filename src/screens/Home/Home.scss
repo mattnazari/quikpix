@@ -22,8 +22,16 @@ $mp: 30px;
   @include flex();
 }
 
+.row {
+  flex-direction: row;
+}
+
 .wrapper {
   margin: $mp;
+}
+
+.between {
+  justify-content: space-between;
 }
 
 .center {
