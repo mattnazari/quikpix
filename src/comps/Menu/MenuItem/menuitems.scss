@@ -9,6 +9,8 @@
 .link {
   position: relative;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .link:before {

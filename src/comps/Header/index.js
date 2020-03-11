@@ -1,6 +1,10 @@
 import React from "react";
 import Menu from "../Menu";
 
+import {
+  Link
+} from "react-router-dom";
+
 const Header = () => {
   function RefreshPage() {
     window.location.reload(true)
@@ -8,7 +12,9 @@ const Header = () => {
 
   return (
     <div className="headerCont">
-      <div className="logo" onClick={RefreshPage}>QuikPix</div>
+      <div>
+        <Link className="logo" to='/'>QuikPix</Link>
+      </div>
       <Menu items={headerItems} />
     </div>
   );
