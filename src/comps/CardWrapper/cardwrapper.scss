@@ -4,7 +4,7 @@
 
 $m: 12px;
 
-@mixin flex($dir: column, $ai: start, $jc: space-between) {
+@mixin flex($dir: column, $ai: flex-start, $jc: space-between) {
   display: flex;
   flex-direction: $dir;
   justify-content: $jc;
