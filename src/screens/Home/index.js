@@ -186,26 +186,29 @@ const Home = () => {
             console.log('width:', width)
             console.log('height:', height)
 
-            if (convertedImage.length < selected.length) {
-              newImage(file, width, height)
-                .then((successFile) => {
-                  console.log('image successfully converted')
-                  console.log('successfile:', successFile)
+            setTimeout(() => {
+              if (convertedImage.length < selected.length) {
+                newImage(file, width, height)
+                  .then((successFile) => {
+                    console.log('image successfully converted')
+                    console.log('successfile:', successFile)
 
-                  const image = URL.createObjectURL(successFile)
+                    const image = URL.createObjectURL(successFile)
 
-                  const i = selected.indexOf(image);
-                  if (i === -1) {
-                    let arr = convertedImage;
-                    arr.push(image)
-                    setConvertedImage(arr)
-                  }
-                  console.log(convertedImage)
-                }).catch((errorFile) => {
-                  console.log('error in converting the image')
-                  console.log(errorFile)
-                })
-            }
+                    const i = selected.indexOf(image);
+                    if (i === -1) {
+                      let arr = convertedImage;
+                      arr.push(image)
+                      setConvertedImage(arr)
+                    }
+                    console.log(convertedImage)
+                  }).catch((errorFile) => {
+                    console.log('error in converting the image')
+                    console.log(errorFile)
+                  })
+              }
+            }, 200);
+
 
             return <ResultsCard
               key={index}
