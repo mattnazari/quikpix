@@ -18,6 +18,8 @@ const CardWrapper = ({ type, title, mediaIcon, pushSelected, spliceSelected, sel
   // cleaning the title to remove hyphen and lowercase it
   const newTitle = title.toLowerCase().replace("-", "");
 
+  // use this to determine whether to unlock features
+  // if the user is premium or not
   const [isLocked, setIsLocked] = useState(true)
 
   // change placeholder images here
@@ -202,11 +204,6 @@ const CardWrapper = ({ type, title, mediaIcon, pushSelected, spliceSelected, sel
         logo: logo.twitter,
         bgImg: img.twitter,
         isLocked: false,
-        data: {
-          title: null, // this should dynamically grab titleTxt from level above ?
-          width: 1584,
-          height: 396
-        }
       },
       {
         titleTxt: 'Profile Picture',
@@ -274,7 +271,7 @@ const CardWrapper = ({ type, title, mediaIcon, pushSelected, spliceSelected, sel
           setVisible(!visible);
         }}>
         <div className="row">
-          <img src={mediaIcon} height="32" />
+          <img src={mediaIcon} height="32" alt="" />
           <h3>{title}</h3>
         </div>
         {icon}
@@ -295,8 +292,8 @@ const CardWrapper = ({ type, title, mediaIcon, pushSelected, spliceSelected, sel
             card={card}
             onClick={() => {
               console.log(`card title: ${card.titleTxt}`)
-              console.log(`card index: ${index}`)
-              console.log(`card data: ${JSON.stringify(card.data)}`)
+              // console.log(`card index: ${index}`) // somewhat irrelevant at this point
+              // console.log(`card data: ${JSON.stringify(card.data)}`) // possible needed for future
               console.log(`card locked status: ${card.isLocked}`)
             }} />
         }) : null}

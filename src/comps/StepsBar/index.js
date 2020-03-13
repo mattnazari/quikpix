@@ -18,7 +18,7 @@ const StepsBar = ({
           <h2 className="upload stepTitleTxt" style={{ color: uploadColor }}>
             Upload
           </h2>
-          <img src={uploadCheck} />
+          <img src={uploadCheck} alt="" />
         </div>
         <div
           className="blueLine"
@@ -29,7 +29,7 @@ const StepsBar = ({
           <h2 className="choose stepTitleTxt" style={{ color: chooseColor }}>
             Choose
           </h2>
-          <img src={chooseCheck} />
+          <img src={chooseCheck} alt="" />
         </div>
         <div
           className="blueLine"
@@ -40,7 +40,7 @@ const StepsBar = ({
           <h2 className="Convert stepTitleTxt" style={{ color: convertColor }}>
             Convert
           </h2>
-          <img src={convertCheck} />
+          <img src={convertCheck} alt="" />
         </div>
       </div>
     </div>

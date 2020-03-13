@@ -8,7 +8,9 @@ import CardWrapper from '../../comps/CardWrapper';
 import ResultsCard from '../../comps/ResultsCard';
 
 import Dropzone from 'react-dropzone';
-import FileSaver, { saveAs } from 'file-saver';
+import FileSaver from 'file-saver';
+
+var cImage = '';
 
 const scrollToTop = () => {
   const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -66,8 +68,9 @@ const Home = () => {
     })
   }
 
-  const [convertedImage, setConvertedImage] = useState('')
-  function saveAs(f){
+  const [convertedImage, setConvertedImage] = useState([])
+
+  function saveAs(f) {
     FileSaver.saveAs(f, 'convertedimage.jpeg')
     console.log('file downloaded')
   }
@@ -149,6 +152,7 @@ const Home = () => {
     setFile(require('../../assets/graphics/dropzone.png'))
     setWidth(600)
     setSelected([])
+    setConvertedImage([])
   }
 
   return (
@@ -168,7 +172,6 @@ const Home = () => {
         <div className='wrapper center'>
           <h2>Results</h2>
           {selected.map((result, index) => {
-            console.log('it is looping from here')
             const str = result.dimTxt.split(" ")
             // converting to number from str, cleaning the str
             const width = parseInt(str[0])
@@ -183,24 +186,33 @@ const Home = () => {
             console.log('width:', width)
             console.log('height:', height)
 
-            newImage(file, width, height)
-              .then((successFile) => {
-                console.log('image successfully converted')
-                console.log('successfile:', successFile)
+            setTimeout(() => {
+              if (convertedImage.length < selected.length) {
+                newImage(file, width, height)
+                  .then((successFile) => {
+                    console.log('image successfully converted')
+                    console.log('successfile:', successFile)
 
-                const image = URL.createObjectURL(successFile)
+                    const image = URL.createObjectURL(successFile)
 
-                console.log('convertedImage:', convertedImage)
-                setConvertedImage(image) // looping due to setting this state
-                console.log('new image:', image)
-                return
-              }).catch((errorFile) => {
-                console.log('error in converting the image')
-                console.log(errorFile)
-              })
+                    const i = selected.indexOf(image);
+                    if (i === -1) {
+                      let arr = convertedImage;
+                      arr.push(image)
+                      setConvertedImage(arr)
+                    }
+                    console.log(convertedImage)
+                  }).catch((errorFile) => {
+                    console.log('error in converting the image')
+                    console.log(errorFile)
+                  })
+              }
+            }, 200);
+
 
             return <ResultsCard
               key={index}
+              index={index}
               resultsCardTitle={result.titleTxt}
               resultsCardIcon={result.logo}
               innerImg={file}

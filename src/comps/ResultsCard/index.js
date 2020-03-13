@@ -9,21 +9,22 @@ const ResultsCard = ({
   height,
   width,
   saveAs,
-  convertedImage
+  convertedImage,
+  index
 }) => {
   return (
     <div className="resultsCardWrapper">
       <div className="resultsCardTitlePosition">
         <div className="resultsCardTitleSection">
           <div className="innerResultsCard">
-            <img src={resultsCardIcon} className="resultsCardIcon" />
+            <img src={resultsCardIcon} className="resultsCardIcon" alt="" />
             <h2 className="resultsCardTitle">{resultsCardTitle}</h2>
           </div>
         </div>
       </div>
       <div className="resultsCard">
         <div className="leftCardSection">
-          <img className="innerImg" src={innerImg} height={height} width={width}></img>
+          <img className="innerImg" src={innerImg} height={height} width={width} alt="" />
           <p className="dimNumTxt">Dimension: {dimNum}</p>
         </div>
         <div className="rightCardSection">
@@ -66,7 +67,9 @@ const ResultsCard = ({
             buttonHeight="47px"
             buttonFontSize="16px"
             onClick={() => {
-              saveAs(convertedImage)
+              console.log('downloading image #:', index)
+              // console.log('attempting to download:', convertedImage)
+              saveAs(convertedImage[index])
             }}
           />
         </div>

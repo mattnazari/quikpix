@@ -6,10 +6,6 @@ import {
 } from "react-router-dom";
 
 const Header = () => {
-  function RefreshPage() {
-    window.location.reload(true)
-  }
-
   return (
     <div className="headerCont">
       <div>

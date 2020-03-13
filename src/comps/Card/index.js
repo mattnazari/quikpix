@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "../Button";
 
 const Card = ({
   cardWidth,
@@ -25,7 +24,7 @@ const Card = ({
   card
 }) => {
   const [isChecked, setIsChecked] = useState(false)
-  const ToggleChecked = () => {
+  function toggleChecked() {
     setIsChecked(!isChecked);
   }
 
@@ -51,18 +50,29 @@ const Card = ({
     <div className="cardWrap" onClick={() => {
       onClick()
       if (!isLocked) {
+        // search if card is already selected
         const i = selected.indexOf(card);
+
+        // if the card IS selected, remove it from array
         if (i > -1) {
           spliceSelected(card)
-          ToggleChecked();
-        } else {
+          toggleChecked()
+          // need more if statements here to check if user is 
+          // premium in order to toggleChecked() for >2 cards
+        } else if (selected.length < 2) {
           pushSelected(card)
-          ToggleChecked();
+          toggleChecked()
+        } else {
+          // TODO
+          // REPLACE THIS WITH A MODAL
+          alert('Upgrade to select more than 2 MODAL')
         }
       } else {
-        // replace this with a modal
+        // TODO
+        // REPLACE THIS WITH A MODAL
         alert('Premium Modal Alert')
       }
+      console.log('selected array length:', selected.length)
     }}>
       <div className="cardCont">
         <div

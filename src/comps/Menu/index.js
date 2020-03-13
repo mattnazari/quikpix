@@ -5,7 +5,7 @@ const Menu = ({ items, menuWidth }) => {
   return (
     <div className="cont" style={{ width: menuWidth }}>
       {items.map((o, i) => {
-        return <MenuItem {...o} />;
+        return <MenuItem {...o} key={i} />;
       })}
     </div>
   );

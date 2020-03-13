@@ -14,7 +14,7 @@ const PlanDetails = ({
   return (
     <div className="planDetailsWrapper">
       <div className="planDetailsRow" style={{ marginTop: planDetailsMT }}>
-        <img src={planIcon} className="planIcon" />
+        <img src={planIcon} className="planIcon" alt="" />
         <div
           className="planDetailsColumn"
           style={{ marginLeft: planDetailsML }}
