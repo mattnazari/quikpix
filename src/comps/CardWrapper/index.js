@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Card from "../Card";
 import { IoIosArrowDropdownCircle, IoIosArrowDropdown } from "react-icons/io";
 
-const CardWrapper = ({ type, title, mediaIcon, pushSelected, spliceSelected, selected }) => {
+const CardWrapper = ({ type, title, mediaIcon, pushSelected,
+  spliceSelected, selected, isLocked, isPremium }) => {
   let cn;
   if (type === "dropdown") {
     cn = "dropdown";
@@ -17,10 +18,6 @@ const CardWrapper = ({ type, title, mediaIcon, pushSelected, spliceSelected, sel
 
   // cleaning the title to remove hyphen and lowercase it
   const newTitle = title.toLowerCase().replace("-", "");
-
-  // use this to determine whether to unlock features
-  // if the user is premium or not
-  const [isLocked, setIsLocked] = useState(true)
 
   // change placeholder images here
   const img = {
@@ -289,6 +286,7 @@ const CardWrapper = ({ type, title, mediaIcon, pushSelected, spliceSelected, sel
             selected={selected}
             pushSelected={pushSelected}
             spliceSelected={spliceSelected}
+            isPremium={isPremium}
             card={card}
             onClick={() => {
               console.log(`card title: ${card.titleTxt}`)

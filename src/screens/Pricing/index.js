@@ -8,7 +8,7 @@ import Footer from '../../comps/Footer';
 
 import { Link } from 'react-router-dom';
 
-const Pricing = () => {
+const Pricing = ({ setIsLocked, setIsPremium }) => {
   return (
     <div>
       <Header />
@@ -29,7 +29,10 @@ const Pricing = () => {
           topPlanImgW="188px"
           planTitleColor="#115195"
           planTitleTopPosition="0"
-          planCardTopPosition="205px" />
+          planCardTopPosition="205px" 
+          setIsLocked={setIsLocked}
+          setIsPremium={setIsPremium}
+          />
         <PlansCard
           planCardH="623px"
           planCardW="306px"
@@ -45,7 +48,10 @@ const Pricing = () => {
           topPlanImgW="188px"
           planTitleColor="#115195"
           planTitleTopPosition="0"
-          planCardTopPosition="205px" />
+          planCardTopPosition="205px"
+          setIsLocked={setIsLocked}
+          setIsPremium={setIsPremium}
+           />
         <PlansCard
           planCardH="623px"
           planCardW="306px"
@@ -61,7 +67,10 @@ const Pricing = () => {
           topPlanImgW="188px"
           planTitleColor="#115195"
           planTitleTopPosition="0"
-          planCardTopPosition="205px" />
+          planCardTopPosition="205px"
+          setIsLocked={setIsLocked}
+          setIsPremium={setIsPremium}
+           />
       </div>
       <div className='flex row wrapper' style={{ justifyContent: 'flex-start' }}>
         <AddonsCard
@@ -71,7 +80,8 @@ const Pricing = () => {
         <AddonsCard
           addonPriceTopTxt="$2.99"
           addonPriceBotTxt="per upload"
-          addonsTitle="Unlimited Dimensions" />
+          addonsTitle="Unlimited Dimensions" 
+          />
       </div>
       <div className='flex wrapper'>
         <Link to='/'>

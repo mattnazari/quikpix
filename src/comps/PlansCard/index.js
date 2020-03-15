@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button";
 import PlanDetails from "../PlanDetails";
+import Modal from 'react-modal';
+import Stripe from '../Stripe';
 
 const PlansCard = ({
   planTitle,
@@ -17,10 +19,29 @@ const PlansCard = ({
   planPriceTxtSize,
   planTitleColor,
   planTitleTopPosition,
-  planCardTopPosition
+  planCardTopPosition,
+  setIsLocked,
+  setIsPremium
 }) => {
+  const [isVisible, setIsVisible] = useState(false)
+
+  function openModal() {
+    setIsVisible(true)
+  }
+
+  function closeModal() {
+    setIsVisible(false)
+  }
+
   return (
     <div className="planCardWrapper">
+      <Modal
+        isOpen={isVisible}
+        onRequestClose={closeModal}>
+        <Stripe setIsLocked={setIsLocked}
+          setIsPremium={setIsPremium} />
+        <button onClick={closeModal}>Close Modal</button>
+      </Modal>
       <div className="planTitlePosition" style={{ top: planTitleTopPosition }}>
         <div className="planTitleCont">
           <h2 style={{ color: planTitleColor }} className="planTitle">
@@ -108,6 +129,9 @@ const PlansCard = ({
             buttonWidth="164px"
             buttonHeight="48px"
             buttonFontSize="18px"
+            onClick={() => {
+              openModal()
+            }}
           />
         </div>
       </div>
