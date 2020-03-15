@@ -18,6 +18,7 @@ const Card = ({
   dimTxtOp,
   onClick,
   isLocked,
+  isPremium,
   selected,
   pushSelected,
   spliceSelected,
@@ -59,13 +60,18 @@ const Card = ({
           toggleChecked()
           // need more if statements here to check if user is 
           // premium in order to toggleChecked() for >2 cards
-        } else if (selected.length < 2) {
+        } else if (!isPremium) {
+          if (selected.length < 2) {
+            pushSelected(card)
+            toggleChecked()
+          } else {
+            // TODO
+            // REPLACE THIS WITH A MODAL
+            alert('Upgrade to select more than 2 MODAL')
+          }
+        } else {
           pushSelected(card)
           toggleChecked()
-        } else {
-          // TODO
-          // REPLACE THIS WITH A MODAL
-          alert('Upgrade to select more than 2 MODAL')
         }
       } else {
         // TODO

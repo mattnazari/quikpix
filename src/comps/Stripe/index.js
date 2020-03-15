@@ -29,7 +29,7 @@ const CARD_OPTIONS = {
   },
 }
 
-const StripeForm = () => {
+const StripeForm = ({ setIsLocked, setIsPremium }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -42,17 +42,22 @@ const StripeForm = () => {
 
     if (error) {
       console.log("error", error)
+      alert('error with your payment')
     } else {
       console.log("payments", paymentMethod)
 
-      var clientSecret = await fetch('/pay.php')
-      var data = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: paymentMethod
-      });
-      if (data.success) {
-        // unlock a feature
-        alert('success')
-      }
+      setIsLocked(false)
+      setIsPremium(true)
+
+      alert('payment successful')
+      // var clientSecret = await fetch('/pay.php')
+      // var data = await stripe.confirmCardPayment(clientSecret, {
+      //   payment_method: paymentMethod
+      // });
+      // if (data.success) {
+      //   // unlock a feature
+      //   alert('success')
+      // }
     }
   }
   return (
@@ -63,10 +68,11 @@ const StripeForm = () => {
   )
 }
 
-const Wrapper = () => {
+const Wrapper = ({ setIsLocked, setIsPremium }) => {
   return (
     <Elements stripe={stripePromise}>
-      <StripeForm />
+      <StripeForm setIsLocked={setIsLocked}
+        setIsPremium={setIsPremium} />
     </Elements>
   )
 }

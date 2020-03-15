@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   BrowserRouter as Router,
@@ -11,15 +11,20 @@ import Home from './screens/Home';
 import Pricing from './screens/Pricing';
 
 function App() {
+  const [isLocked, setIsLocked] = useState(true)
+  const [isPremium, setIsPremium] = useState(false)
+
   return (
     <Router>
       <div>
         <Switch>
           <Route path="/Upgrade">
-            <Pricing />
+            <Pricing setIsLocked={setIsLocked}
+              setIsPremium={setIsPremium} />
           </Route>
           <Route path="/">
-            <Home />
+            <Home isLocked={isLocked}
+              isPremium={isPremium} />
           </Route>
         </Switch>
       </div>
